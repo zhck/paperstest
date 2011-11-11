@@ -1,0 +1,16 @@
+<h1>Articles#index</h1>
+<%= will_paginate %>
+<%= link_to "Create Article", new_article_path  %>
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <p> Title: <%=  article.title %> </p>
+      <p> Content: <%= article.content %> </p>
+      <p> Author: <%= article.author.name %> </p>
+      <p> Creation date: <%= article.created_at %> </p>
+      <p> <%= link_to "edit", edit_article_path(article.id)  %> | <%= link_to "delete", articles_path  %></p>
+      <hr />
+    </li>
+  <% end %>
+</ul>
+<%= will_paginate %>

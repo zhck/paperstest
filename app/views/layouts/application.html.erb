@@ -17,6 +17,13 @@
         <nav>
           <ul class="hmenu">
             <%= render 'shared/navigation' %>
+            
+            <% if user_signed_in? %>
+            You are logged as:
+            <b> 
+              <%= link_to(current_user.name, current_user) %>
+            </b>
+            <% end %>
           </ul>
         </nav>
         <%- flash.each do |name, msg| -%>
