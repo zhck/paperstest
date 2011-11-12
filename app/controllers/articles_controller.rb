@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_filter :article_find 
+  before_filter :article_find, :except => [:index]
   
   def create
     @article = current_user.articles.new(params[:article])
@@ -11,11 +11,9 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = article_find(params[:id])
   end
 
   def update
-    @article = article_find
        if @article.update_attributes(params[:article])
          redirect_to @article
        else
@@ -37,9 +35,12 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = article_find    
   end
-  
-  
+
+  private
+
+   def article_find
+   @article=Article.find(params[:id])  
+   end 
 
 end

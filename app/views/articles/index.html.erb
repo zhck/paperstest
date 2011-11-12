@@ -8,7 +8,9 @@
       <p> Content: <%= article.content %> </p>
       <p> Author: <%= article.author.name %> </p>
       <p> Creation date: <%= article.created_at %> </p>
-      <p> <%= link_to "edit", edit_article_path(article.id)  %> | <%= link_to "delete", articles_path  %></p>
+      <p> <%= link_to "edit", edit_article_path(article.id)  %> 
+      | <%= link_to "delete", articles_path  %></p>
+    
       <hr />
     </li>
   <% end %>
