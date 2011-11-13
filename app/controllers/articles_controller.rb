@@ -1,8 +1,7 @@
 class ArticlesController < ApplicationController
   before_filter :article_find, :only => [:destroy, :show, :edit, :update]
   before_filter :authenticate, :only => [:edit, :update, :new]
-  
-  
+    
   def create
     @article = current_user.articles.new(params[:article])
     if @article.save
@@ -16,11 +15,11 @@ class ArticlesController < ApplicationController
   end
 
   def update
-       if @article.update_attributes(params[:article])
-         redirect_to @article
-       else
-         render 'edit'
-       end
+    if @article.update_attributes(params[:article])
+      redirect_to @article
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -40,20 +39,17 @@ class ArticlesController < ApplicationController
   end
 
   private
-   def article_find
-     @article=Article.find(params[:id])  
-   end 
 
-   def authenticate
-     deny_access unless signed_in?
-   end
+  def article_find
+    @article=Article.find(params[:id])  
+  end 
 
-   def correct_user
-     @user = User.find(params[:id])
-     redirect_to(root_path) unless current_user?(@user)
-   end
+  def authenticate
+    deny_access unless signed_in?
+  end
 
-   
-
-  
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_path) unless current_user?(@user)
+  end
 end
