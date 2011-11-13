@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
-  before_filter :article_find, :except => [:index]
+  before_filter :article_find, :only => [:destroy, :show, :edit, :update]
+  before_filter :authenticate, :only => [:edit, :update, :new]
+  
   
   def create
     @article = current_user.articles.new(params[:article])
@@ -38,9 +40,20 @@ class ArticlesController < ApplicationController
   end
 
   private
-
    def article_find
-   @article=Article.find(params[:id])  
+     @article=Article.find(params[:id])  
    end 
 
+   def authenticate
+     deny_access unless signed_in?
+   end
+
+   def correct_user
+     @user = User.find(params[:id])
+     redirect_to(root_path) unless current_user?(@user)
+   end
+
+   
+
+  
 end
