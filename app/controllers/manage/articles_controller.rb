@@ -4,6 +4,8 @@ class Manage::ArticlesController < ApplicationController
   before_filter :authenticate, :only => [:edit, :update, :new]
   before_filter :correct_user, :only => [:edit, :distroy]   
   
+  autocomplete :article, :title
+  
   def create
     @article = current_user.articles.new(params[:article])
     if @article.save
