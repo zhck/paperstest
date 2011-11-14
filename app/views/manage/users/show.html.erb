@@ -1,0 +1,9 @@
+<h3>Profile user</h3>
+<p>User: <%= @user.name %></p>
+  <%= link_to('Edit profile', edit_user_registration_path) %>
+<p>Email: <%= @user.email if @user.email %></p>
+<%= link_to "Create Article", new_manage_article_path  %>
+<h3>List my articles</h3>
+<% @user.articles.each do |article| %>
+  <p>Article: <%=link_to article.title, manage_article_path(article.id) %></p>
+<% end %>

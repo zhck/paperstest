@@ -1,0 +1,8 @@
+<h1> Edit article  </h1>
+<%= form_for [:manage, @article] do |f| %>
+  <%= render 'article_form', :f => f %>
+  <div>
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+

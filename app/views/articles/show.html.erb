@@ -1,6 +1,1 @@
-<h1>Title: <%= @article.title %> </h1>
-<p> Content: <%= @article.content %> </p>
-<p> Author: <%= link_to @article.author.name, user_path(@article.author.id) %> </p>
-<% if @article.author.id == current_user.id %>
- <%= link_to "delete", @article, :method => :delete %> | <%= link_to "edit", edit_article_path(@article.id) %>
-<% end %>
+<%= render 'shared/show_article' %>

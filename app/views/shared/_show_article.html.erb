@@ -1,0 +1,6 @@
+<h1>Title: <%= @article.title %> </h1>
+<p> Content: <%= @article.content %> </p>
+<p> Author: <%= link_to @article.author.name, user_path(@article.author.id) %> </p>
+
+
+

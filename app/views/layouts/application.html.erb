@@ -19,10 +19,10 @@
             <%= render 'shared/navigation' %>
             
             <% if user_signed_in? %>
-            You are logged as:
-            <b> 
-              <%= link_to(current_user.name, current_user) %>
-            </b>
+              You are logged as:
+              <b> 
+                <%= link_to(current_user.name, manage_user_path(current_user.id)) %>
+              </b>
             <% end %>
           </ul>
         </nav>
