@@ -1,2 +1,8 @@
 <h1> Create new article  </h1>
-<%= render 'article_form' %>
+<%= form_for @article do |f| %>
+  <%= render 'article_form', :f => f %>
+  <div>
+    <%= f.submit "Create" %>
+  </div>
+<% end %>
+
