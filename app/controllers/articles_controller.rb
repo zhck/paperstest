@@ -1,7 +1,9 @@
 class ArticlesController < ApplicationController
+  
   before_filter :article_find, :only => [:destroy, :show, :edit, :update]
   before_filter :authenticate, :only => [:edit, :update, :new]
-    
+  before_filter :correct_user, :only => [:edit, :distroy]   
+  
   def create
     @article = current_user.articles.new(params[:article])
     if @article.save
@@ -49,7 +51,8 @@ class ArticlesController < ApplicationController
   end
 
   def correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_path) unless current_user?(@user)
+    @article = Article.find(params[:id])
+    redirect_to(root_path) unless current_user?(@article.author)
   end
+  
 end
