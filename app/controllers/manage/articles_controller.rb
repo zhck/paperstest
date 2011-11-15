@@ -4,8 +4,6 @@ class Manage::ArticlesController < ApplicationController
   before_filter :authenticate, :only => [:edit, :update, :new]
   before_filter :correct_user, :only => [:edit, :distroy]   
   
-  autocomplete :article, :title
-  
   def create
     @article = current_user.articles.new(params[:article])
     if @article.save
@@ -47,10 +45,6 @@ class Manage::ArticlesController < ApplicationController
   def article_find
     @article=Article.find(params[:id])  
   end 
-
-  def authenticate
-    deny_access unless signed_in?
-  end
 
   def correct_user
     @article = Article.find(params[:id])

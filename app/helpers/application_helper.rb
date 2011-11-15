@@ -19,4 +19,9 @@ module ApplicationHelper
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+  
+  def authenticate
+    deny_access unless signed_in?
+  end
+   
 end

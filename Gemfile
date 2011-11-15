@@ -21,4 +21,4 @@ gem "database_cleaner", ">= 0.6.7", :group => :test
 gem "launchy", ">= 2.0.5", :group => :test
 gem "devise", ">= 1.4.9"
 gem 'will_paginate', '3.0.pre2'
-gem 'rails3-jquery-autocomplete'
+gem 'acts-as-taggable-on', '~>2.1.0'

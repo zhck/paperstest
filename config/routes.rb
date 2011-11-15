@@ -7,11 +7,9 @@ Paperstest::Application.routes.draw do
   
   resources :users
 
-    namespace :manage do
-      resources :articles do
-         get :autocomplete_article_title, :on => :collection
-      end
-      resources :users
-    end
+  namespace :manage do
+    resources :articles
+    resources :users
+  end
   
 end

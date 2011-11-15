@@ -1,4 +1,5 @@
 <%= f.label :title %>:
-<%= f.autocomplete_field :title, autocomplete_article_title_manage_articles_path %><br />
+<%= f.text_field :title %><br />
+Tags: <%= f.text_field :tag_list %><br />
 <%= f.label :content %>:
 <%= f.text_area :content %><br />

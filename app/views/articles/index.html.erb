@@ -1,4 +1,12 @@
 <h1>Articles</h1>
+
+<%= form_tag( articles_path, :method => :get) %>
+
+  <%= text_field_tag 'tag' %>
+  <div>
+    <%= submit_tag "filter" %>
+  </div>
+
 <%= will_paginate %>
 <ul>
   <% @articles.each do |article| %>
