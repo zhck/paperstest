@@ -1,15 +1,13 @@
 <h3>Profile user</h3>
 <p>User: <%= @user.name %></p>
-  <%= link_to('Edit profile', edit_user_registration_path) %>
+<%= link_to('Edit profile', edit_user_registration_path) %>
 <p>Email: <%= @user.email if @user.email %></p>
 <%= link_to "Create Article", new_manage_article_path  %>
-<h3>List my articles</h3>
-<ul>
+<h3>My articles list</h3>
 <% @user.articles.each do |article| %>
- <li>
+  <div class="articles_list round">
     <p> Title: <%=link_to article.title, manage_article_path(article.id) %></p>
     <p> Author: <%= link_to article.author.name, user_path(article.author.id) %> </p>
     <p> Creation date: <%= article.created_at %> </p>
-    <hr />
-  </li>
+  </div>
 <% end %>

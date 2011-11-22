@@ -5,6 +5,12 @@
  *= require_self
  *= require_tree . 
 */
+.user_greeting {
+  float: right;
+}
+header nav {
+  background: #ccc;
+}
 header nav ul {
   list-style: none;
   margin: 0 0 2em;
@@ -13,16 +19,14 @@ header nav ul {
 header nav ul li {
   display: inline;
 }
-#flash_notice, #flash_alert {
-  padding: 5px 8px;
-  margin: 10px 0;
+.articles_list {
+  width: 30%;
+  background: #ccc;
+  padding: 0 1em;
 }
-#flash_notice {
-  background-color: #CFC;
-  border: solid 1px #6C6;
+/* Round corners */
+.round {
+  -moz-border-radius:    10px;
+  -webkit-border-radius: 10px;
+  border-radius:         10px;
 }
-#flash_alert {
-  background-color: #FCC;
-  border: solid 1px #C66;
-}
-

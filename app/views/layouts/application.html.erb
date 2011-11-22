@@ -9,7 +9,6 @@
     <meta name="author" content="">
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application" %>
-    <%= javascript_include_tag "autocomplete-rails.js" %>
     <%= csrf_meta_tags %>
   </head>
   <body class="<%= params[:controller] %>">
@@ -18,18 +17,16 @@
         <nav>
           <ul class="hmenu">
             <%= render 'shared/navigation' %>
-            
             <% if user_signed_in? %>
-              You are logged as:
-              <b> 
-                <%= link_to(current_user.name, manage_user_path(current_user.id)) %>
-              </b>
+			  <div class="user_greeting">
+              	You are logged as:
+	            <b> 
+	              <%= link_to(current_user.name, manage_user_path(current_user.id)) %>
+	            </b>
+			  </div>
             <% end %>
           </ul>
         </nav>
-        <%- flash.each do |name, msg| -%>
-          <%= content_tag :div, msg, :id => "flash_\#{name}" if msg.is_a?(String) %>
-        <%- end -%>
       </header>
       <div id="main" role="main">
         <%= yield %>
